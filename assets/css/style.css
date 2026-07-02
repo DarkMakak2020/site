@@ -731,6 +731,7 @@ a[href^="mailto:"] { text-transform: lowercase; }
   .funnel-grid > .panel--funnel { order: -1; }
   .funnel-aside { order: 1; }
   .panel--funnel .form--wide { grid-template-columns: 1fr; }
+  .panel--funnel .form-row { grid-template-columns: 1fr; }
   .steps--3 { grid-template-columns: 1fr; }
   .pod-about { grid-template-columns: 1fr; }
 }
@@ -867,14 +868,34 @@ details.faq-item > summary { list-style: none; cursor: pointer; }
 details.faq-item > summary::-webkit-details-marker { display: none; }
 
 /* ---------------- Forms ---------------- */
-.form { display: grid; gap: var(--space-4); max-width: 620px; }
-.form--wide { max-width: 820px; grid-template-columns: 1fr 1fr; }
-.field { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.form { display: grid; gap: var(--space-4); max-width: 620px; min-width: 0; position: relative; }
+.form--wide { max-width: 820px; width: 100%; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+/* Явные пары полей — сетка не ломается от honeypot и длинных select */
+.form--wide.form--paired { grid-template-columns: 1fr; }
+.form-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4); min-width: 0; width: 100%;
+}
+.form-row > .field { min-width: 0; }
+/* Honeypot Netlify — вне потока сетки, не сдвигает «Имя» и «Телефон» */
+.form > .visually-hidden {
+  position: absolute !important; left: 0; top: 0;
+  width: 1px !important; height: 1px !important;
+  margin: 0 !important; padding: 0 !important;
+  overflow: hidden !important; clip: rect(0 0 0 0) !important;
+  pointer-events: none; z-index: -1;
+}
+.form > input[type="hidden"] { display: none; }
+.field { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; max-width: 100%; }
 .field--full { grid-column: 1 / -1; }
-.field label { font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); }
+.field label {
+  font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint);
+  overflow-wrap: anywhere; line-height: 1.35;
+}
 .field label .req { color: var(--gold); }
 .field input, .field textarea, .field select {
-  width: 100%; background: var(--surface-2); color: var(--text);
+  width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;
+  background: var(--surface-2); color: var(--text);
   border: 1px solid var(--border); border-radius: var(--radius-sm);
   padding: 0.85em 1em; transition: border-color .3s var(--ease), background .3s var(--ease);
 }
@@ -1501,6 +1522,7 @@ html:not(.js) .reveal {
   .door--lg, .door--md, .door--sm { grid-column: span 1; min-height: 200px; }
   .motto-strip { gap: var(--space-6); }
   .form--wide { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
   .step { grid-template-columns: 1fr; gap: var(--space-3); }
   /* Горизонтальный сдвиг reveal на узких экранах даёт боковой скролл */
   .reveal-left, .reveal-right { transform: translateY(28px) scale(0.985); }
