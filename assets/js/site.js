@@ -1051,6 +1051,7 @@
     function syncFromNative() {
       var sel = select.options[select.selectedIndex];
       valueEl.textContent = sel ? sel.textContent : '';
+      valueEl.title = sel && sel.value ? sel.textContent : '';
       valueEl.classList.toggle('is-placeholder', !sel || sel.value === '');
       items.forEach(function (li, i) {
         li.setAttribute('aria-selected', i === select.selectedIndex ? 'true' : 'false');
