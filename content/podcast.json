@@ -1,0 +1,171 @@
+{
+  "_note": "embedUrl — VK-плеер с radio.mediametrics.ru. url — страница выпуска на MediaMetrics.",
+  "featuredSlug": "avtor-stsenariya-vasha-kvartira",
+  "items": [
+    {
+      "slug": "peyzazh-zapahov",
+      "title": "Пейзаж Запахов",
+      "guest": "",
+      "date": "25.06.2026",
+      "summary": "Как город говорит с нами через запахи — с парфюмером Еленой Даргель.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256927&hash=fc2ddbcaf714b899&hd=3",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/76292/",
+      "platform": "MediaMetrics",
+      "cover": "https://radio.mediametrics.ru/img/radio-broadcast-media-not-photo.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": false
+    },
+    {
+      "slug": "avtor-stsenariya-vasha-kvartira",
+      "title": "Автор Сценария — Ваша Квартира",
+      "guest": "",
+      "date": "11.06.2026",
+      "summary": "Мы думаем, что сами пишем сценарий жизни, выбирая квартиру. Часто наоборот — жильё диктует правила: шум, парковка, планировка.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256882&hash=2f4a1ee80b3fc768",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/76233/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/avtor-stsenariya-vasha-kvartira.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "privychki-krasoty",
+      "title": "Привычки Красоты",
+      "guest": "",
+      "date": "28.05.2026",
+      "summary": "Какие ритуалы ухода работают в мегаполисе — и что город оставляет на коже. Про красоту как способ «читать» своё лицо.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256833&hash=76d8e6691a4bda0b",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/76179/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/privychki-krasoty.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "vse-pererabotaetsya",
+      "title": "Все Переработается",
+      "guest": "",
+      "date": "14.05.2026",
+      "summary": "С Софьей Климовой из «РазДельного Сбора» — с чего начать сокращать свой след и как изменился горожанин, который несёт отходы на переработку.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256778&hash=ea906ab37f015543",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/76113/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/vse-pererabotaetsya.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "v-kadre",
+      "title": "В Кадре",
+      "guest": "",
+      "date": "30.04.2026",
+      "summary": "С фотографом Дмитрием Якимовым — как увидеть код Петербурга в свете и кадре и что такое «фотогеничность города».",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256737&hash=47e1ea054a392900",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/76066/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/v-kadre.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "muzyka-piters",
+      "title": "Музыка Питер's",
+      "guest": "",
+      "date": "16.04.2026",
+      "summary": "С Эми Питерс — как город становится со-автором музыки и почему Петербург стал домом для её песен.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256687&hash=2df0e3664f2d7847",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/76003/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/muzyka-piters.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "menyu-goroda",
+      "title": "Меню Города",
+      "guest": "",
+      "date": "02.04.2026",
+      "summary": "С ресторатором Антоном Скакодубом — может ли ресторан быть парком, библиотекой и местом силы одновременно.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256635&hash=d3a5d0d50f2bb301",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/75926/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/menyu-goroda.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "pravo-na-rozy",
+      "title": "Право на Розы",
+      "guest": "",
+      "date": "19.03.2026",
+      "summary": "С оперной певицей Анной-Марией Матис — как из нескольких роз вырастает сообщество соседей и что такое тактический урбанизм.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256581&hash=8a9e2e640dea6d15",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/75855/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/pravo-na-rozy.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "arheologiya-buduschego",
+      "title": "Археология Будущего",
+      "guest": "",
+      "date": "05.03.2026",
+      "summary": "С историком Григорием Прядко — метод «археологии будущего»: что мы оставляем городу своими решениями сегодня.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256536&hash=a26cff2f295638f5",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/75811/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/arheologiya-buduschego.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "psihologiya-goroda",
+      "title": "КОД МЕСТА: психология города",
+      "guest": "",
+      "date": "19.02.2026",
+      "summary": "С режиссёром Женей Анисимовым — город как сцена и театр как способ сделать пространство живым.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256490&hash=9896108d531143f9",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/75770/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/psihologiya-goroda.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    },
+    {
+      "slug": "sakvoyazh-gorozhanki",
+      "title": "Саквояж горожанки",
+      "guest": "",
+      "date": "05.02.2026",
+      "summary": "Артефакты повседневной жизни — способ разговорить город и увидеть в привычных вещах его код.",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-69171694&id=456256446&hash=bd3db5836b3afac0",
+      "url": "https://radio.mediametrics.ru/Kod%20mesta/75707/",
+      "platform": "MediaMetrics",
+      "cover": "/assets/img/podcast/episodes/sakvoyazh-gorozhanki.jpg",
+      "tags": [
+        "КОД МЕСТА"
+      ],
+      "published": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# ============================================================
+# Netlify — конфигурация деплоя
+# Сайт статический, сборка не требуется. Публикуется папка целиком.
+# Если репозиторий = эта папка (site/), publish = "."; если site/ лежит
+# внутри репозитория — укажите publish = "site".
+# ============================================================
+
+[build]
+  publish = "."
+  command = "python scripts/netlify_build.py"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+# Заголовки безопасности и кэширования
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"

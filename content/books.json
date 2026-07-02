@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "slug": "russkiy-tramp-gosha-rudakov",
+      "title": "Русский Трамп: Гоша Рудаков",
+      "summary": "Бизнес-драмеди о российском девелопере, чьи амбиции растут быстрее компетенций. Сатира о большой власти и цене решений.",
+      "fullDescription": "История российского девелопера, чьи амбиции растут быстрее, чем компетенции и понимание последствий. Он мечтает о большой власти и влиянии, но постепенно оказывается в мире, который управляет им жёстче, чем он сам управляет бизнесом. Все герои вымышлены, совпадения случайны.",
+      "year": "2025",
+      "genre": "Бизнес-драмеди · сатира · 18+",
+      "status": "В продаже",
+      "cover": "/assets/img/books/russkiy-tramp-gosha-rudakov.webp",
+      "tags": ["Проза", "18+"],
+      "stores": [
+        { "label": "Купить на OZON", "url": "https://ozon.ru/t/csQLFN6" },
+        { "label": "Купить на Wildberries", "url": "https://www.wildberries.ru/catalog/732805535/detail.aspx" }
+      ],
+      "published": true
+    },
+    {
+      "slug": "ya-zhenshchina-mission-itpossible",
+      "title": "Я — женщина. А чего добился ты?",
+      "summary": "Новый бизнес-драмеди про HR-менеджера 20-х годов XXI века. Рабочее название также: Mission ITPossible!",
+      "fullDescription": "Новый бизнес-драмеди Елены Бочаровой про HR-менеджера 20-х годов XXI века. Рабочие названия: «Я — женщина. А чего добился ты?» (I'm a woman. What's your superpower?) или «Mission ITPossible!».",
+      "year": "2026",
+      "genre": "Бизнес-драмеди",
+      "status": "Готовится к выходу",
+      "cover": "/assets/img/books/ya-zhenshchina-mission-itpossible.webp",
+      "tags": ["Анонс"],
+      "stores": [],
+      "published": true
+    }
+  ]
+}

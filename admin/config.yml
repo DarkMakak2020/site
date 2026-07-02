@@ -1,0 +1,197 @@
+# ============================================================
+# Админка сайта — Decap CMS (для Елены и команды)
+# Вход: https://ваш-домен/admin/
+# Сохранение: через Netlify (см. NETLIFY-SETUP.md)
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# URL сайта — замените example.com на реальный домен после деплоя
+site_url: https://example.com
+display_url: https://example.com
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Одна кнопка «Опубликовать» — без черновиков и статусов
+publish_mode: simple
+
+locale: "ru"
+
+collections:
+  # ---------- Экскурсии (самый частый раздел) ----------
+  - name: "excursions"
+    label: "Экскурсии"
+    icon: "hiking"
+    files:
+      - name: "excursions"
+        label: "Маршруты"
+        file: "content/excursions.json"
+        fields:
+          - label: "Экскурсии"
+            name: "items"
+            widget: "list"
+            label_singular: "экскурсия"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название", name: "title", widget: "string", hint: "Как на карточке на сайте" }
+              - { label: "Краткое описание", name: "summary", widget: "text", hint: "2–3 предложения для карточки" }
+              - { label: "Полное описание", name: "fullDescription", widget: "text", required: false, hint: "Подробнее — если понадобится отдельная страница" }
+              - { label: "Фото обложки", name: "cover", widget: "image", required: false, hint: "Нажмите «Выбрать» и загрузите фото" }
+              - { label: "Длительность", name: "duration", widget: "string", required: false, default: "2 часа" }
+              - { label: "Формат", name: "format", widget: "string", required: false, default: "Индивидуально · малые группы до 6 человек · корпоративно" }
+              - { label: "Для кого", name: "audience", widget: "string", required: false }
+              - { label: "Цена", name: "price", widget: "string", required: false, default: "по запросу" }
+              - { label: "Теги", name: "tags", widget: "list", required: false, hint: "Например: Бизнес-история" }
+              - { label: "Показывать на сайте", name: "published", widget: "boolean", default: true }
+              - { label: "Служебное имя (slug)", name: "slug", widget: "string", required: false, hint: "Латиницей через дефис. Можно оставить пустым — подскажите разработчику название, он заполнит." }
+
+  # ---------- Подкаст ----------
+  - name: "podcast"
+    label: "Подкаст"
+    icon: "podcasts"
+    files:
+      - name: "podcast"
+        label: "Выпуски"
+        file: "content/podcast.json"
+        fields:
+          - label: "Выпуск в большом плеере наверху страницы"
+            name: "featuredSlug"
+            widget: "string"
+            required: false
+            hint: "Служебное имя выпуска из списка ниже. Обычно — последний выпуск. Если не знаете — оставьте пустым или спросите разработчика."
+          - label: "Выпуски"
+            name: "items"
+            widget: "list"
+            label_singular: "выпуск"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название выпуска", name: "title", widget: "string" }
+              - { label: "Дата", name: "date", widget: "string", required: false, hint: "Например: 11.06.2026" }
+              - { label: "Краткое описание", name: "summary", widget: "text" }
+              - { label: "Гость", name: "guest", widget: "string", required: false }
+              - { label: "Обложка", name: "cover", widget: "image", required: false, hint: "Картинка для карточки выпуска" }
+              - label: "Ссылка на страницу выпуска"
+                name: "url"
+                widget: "string"
+                required: false
+                hint: "Скопируйте адрес из браузера со страницы MediaMetrics (radio.mediametrics.ru/...)"
+              - label: "Ссылка для встроенного видео"
+                name: "embedUrl"
+                widget: "string"
+                required: false
+                hint: "Техническое поле. Обычно присылаете разработчику ссылку на VK-видео — он вставит. Или вставьте сюда строку вида https://vkvideo.ru/video_ext.php?..."
+              - { label: "Платформа", name: "platform", widget: "string", required: false, default: "MediaMetrics" }
+              - { label: "Теги", name: "tags", widget: "list", required: false }
+              - { label: "Показывать на сайте", name: "published", widget: "boolean", default: true }
+              - { label: "Служебное имя (slug)", name: "slug", widget: "string", required: false, hint: "Латиницей. Можно оставить пустым — поможет разработчик." }
+
+  # ---------- Книги ----------
+  - name: "books"
+    label: "Книги"
+    icon: "book"
+    files:
+      - name: "books"
+        label: "Книги"
+        file: "content/books.json"
+        fields:
+          - label: "Книги"
+            name: "items"
+            widget: "list"
+            label_singular: "книга"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Краткое описание", name: "summary", widget: "text" }
+              - { label: "Обложка", name: "cover", widget: "image", required: false }
+              - { label: "Год", name: "year", widget: "string", required: false }
+              - { label: "Жанр", name: "genre", widget: "string", required: false }
+              - { label: "Статус", name: "status", widget: "string", required: false, hint: "Например: В продаже / Готовится к выходу" }
+              - label: "Ссылки на магазины"
+                name: "stores"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Название", name: "label", widget: "string", hint: "OZON / Wildberries" }
+                  - { label: "Ссылка", name: "url", widget: "string" }
+              - { label: "Теги", name: "tags", widget: "list", required: false }
+              - { label: "Показывать на сайте", name: "published", widget: "boolean", default: true }
+              - { label: "Служебное имя (slug)", name: "slug", widget: "string", required: false }
+
+  # ---------- Журнал ----------
+  - name: "journal"
+    label: "Журнал"
+    icon: "article"
+    files:
+      - name: "journal"
+        label: "Статьи и новости"
+        file: "content/journal.json"
+        fields:
+          - label: "Материалы"
+            name: "items"
+            widget: "list"
+            label_singular: "материал"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Краткое описание", name: "summary", widget: "text", hint: "Текст на карточке в списке" }
+              - { label: "Основной текст", name: "body", widget: "text", hint: "Полная статья. Абзацы — через пустую строку." }
+              - { label: "Лид (цитата под заголовком)", name: "lede", widget: "text", required: false }
+              - { label: "Обложка", name: "cover", widget: "image", required: false }
+              - { label: "Категория", name: "category", widget: "string", required: false, hint: "Например: Анонс / Метод" }
+              - { label: "Дата", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false }
+              - { label: "Автор", name: "author", widget: "string", required: false, default: "Елена Бочарова" }
+              - { label: "Теги", name: "tags", widget: "list", required: false }
+              - { label: "Показывать на сайте", name: "published", widget: "boolean", default: true }
+              - { label: "Служебное имя (slug)", name: "slug", widget: "string", required: false }
+
+  # ---------- Контакты (простые поля) ----------
+  - name: "settings"
+    label: "Контакты"
+    icon: "contact_page"
+    files:
+      - name: "site"
+        label: "Email, телефон, соцсети"
+        file: "content/site.json"
+        fields:
+          - label: "Имя и подпись"
+            name: "brand"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Имя", name: "name", widget: "string" }
+              - { label: "Подпись под именем", name: "tagline", widget: "string" }
+              - { label: "Роли в подвале", name: "roles", widget: "string", required: false }
+          - label: "Контакты"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Телефон", name: "phone", widget: "string", required: false }
+              - { label: "Telegram", name: "telegram", widget: "string", required: false, hint: "Например: @ElenaBBo" }
+              - { label: "Город", name: "city", widget: "string", required: false }
+          - label: "Ссылки на соцсети и подкаст"
+            name: "social"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "VK", name: "vk", widget: "string", required: false }
+              - { label: "Rutube", name: "rutube", widget: "string", required: false }
+              - { label: "MediaMetrics", name: "mediametrics", widget: "string", required: false }
+              - { label: "Telegram", name: "telegram", widget: "string", required: false }
+          - label: "SEO и домен (обычно меняет разработчик)"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Адрес сайта (https://...)", name: "siteUrl", widget: "string" }
+              - { label: "OG-картинка", name: "defaultOgImage", widget: "string", required: false }
+          - label: "Аналитика"
+            name: "analytics"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "ID Яндекс.Метрики", name: "yandexMetrikaId", widget: "string", required: false }
+              - { label: "ID VK Pixel", name: "vkPixelId", widget: "string", required: false }

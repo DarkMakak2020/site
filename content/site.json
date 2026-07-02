@@ -1,0 +1,56 @@
+{
+  "brand": {
+    "name": "Елена Бочарова",
+    "tagline": "Автор метода КОД МЕСТА",
+    "roles": "Стратег · Коуч · HR-директор · Гид-переводчик · Писательница · Ведущая подкаста"
+  },
+  "contacts": {
+    "email": "Elenabbocharova@yandex.ru",
+    "phone": "+79653407481",
+    "telegram": "@ElenaBBo",
+    "whatsapp": "",
+    "city": "Санкт-Петербург"
+  },
+  "social": {
+    "vk": "https://vk.ru/kodmesta",
+    "rutube": "https://rutube.ru/channel/73837855/",
+    "mediametrics": "https://radio.mediametrics.ru/Kod%20mesta/",
+    "telegram": "https://t.me/ElenaBBo"
+  },
+  "podcast": {
+    "title": "КОД МЕСТА",
+    "subtitle": "Видеоподкаст-лаборатория метода",
+    "links": [
+      { "label": "VK Видео", "url": "https://vk.ru/kodmesta" },
+      { "label": "Rutube", "url": "https://rutube.ru/channel/73837855/" },
+      { "label": "MediaMetrics", "url": "https://radio.mediametrics.ru/Kod%20mesta/" }
+    ]
+  },
+  "stores": {
+    "ozon": "https://ozon.ru/t/csQLFN6",
+    "wildberries": "https://www.wildberries.ru/catalog/732805535/detail.aspx"
+  },
+  "assets": {
+    "_todo": "Источники ассетов (Яндекс.Диск, публичные папки). Скачать и разложить по /assets/img/. Список файлов — в ASSETS-TODO.md.",
+    "photos": "https://disk.yandex.ru/d/0Yrcn5bt8FaGDA",
+    "documents": "https://disk.yandex.ru/d/VERRTUVLcZMwOQ",
+    "logos": "https://disk.yandex.ru/d/CuCiJ8S7v4kgY"
+  },
+  "analytics": {
+    "yandexMetrikaId": "",
+    "vkPixelId": "",
+    "comment": "Заполните ID счётчиков — скрипты подключатся автоматически (см. README, раздел Аналитика)."
+  },
+  "seo": {
+    "siteUrl": "https://example.com",
+    "siteName": "Елена Бочарова · КОД МЕСТА",
+    "defaultTitle": "Елена Бочарова — КОД МЕСТА",
+    "defaultDescription": "Елена Бочарова — автор метода КОД МЕСТА. Стратег, коуч, HR-директор, гид, писательница. Мультибрендовый хаб направлений.",
+    "defaultOgImage": "/assets/img/og-default.svg",
+    "locale": "ru_RU",
+    "author": "Елена Бочарова",
+    "themeColor": "#081f1b",
+    "twitterSite": "",
+    "titleSuffix": " · Елена Бочарова · КОД МЕСТА"
+  }
+}

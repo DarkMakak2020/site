@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Админка · Елена Бочарова</title>
+</head>
+<body>
+  <!-- Decap CMS — панель для редактирования контента сайта.
+       Настройка один раз: NETLIFY-SETUP.md (для разработчика).
+       Инструкция для Елены: ELENA-ADMIN.md -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // После входа — на главную сайта, если открыли /admin/ без авторизации
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', function (user) {
+        if (!user) {
+          window.netlifyIdentity.on('login', function () {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script></body>
+</html>

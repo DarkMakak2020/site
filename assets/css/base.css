@@ -1,0 +1,177 @@
+/* ============================================================
+   base.css — reset, tokens, primitives
+   Project: Елена Бочарова — мультибрендовый хаб «Тихая роскошь»
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  scrollbar-gutter: stable;
+  min-height: 100%;
+  background-color: var(--bg);
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+body { line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; width: 100%; max-width: 100%; position: relative; }
+img, picture, svg, video { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: none; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; }
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Core palette — Quiet Luxury */
+  --emerald-deep:  #0c2a25;   /* cat's-eye / темный изумруд */
+  --emerald:       #103b32;
+  --emerald-mid:   #1c5247;
+  --emerald-glow:  #2f7a68;
+  --bordeaux-deep: #2c0f17;
+  --bordeaux:      #5a1f2c;
+  --bordeaux-wine: #7a2a3a;
+  --ivory:         #f4efe6;   /* теплый айвори */
+  --champagne:     #e8ddc8;
+  --champagne-2:   #d8c9ac;
+  --gold:          #c4a35a;   /* металл/золото — только микродетали */
+  --gold-soft:     #d6bd86;
+
+  /* Semantic surfaces (dark, emerald-based) */
+  --bg:            #081f1b;
+  --bg-2:          #0b2620;
+  --surface:       rgba(244,239,230,0.035);
+  --surface-2:     rgba(244,239,230,0.06);
+  --surface-3:     rgba(244,239,230,0.09);
+  --border:        rgba(232,221,200,0.12);
+  --border-strong: rgba(232,221,200,0.22);
+
+  /* Text */
+  --text:          #f1eadc;
+  --text-soft:     rgba(241,234,220,0.74);
+  --text-faint:    rgba(241,234,220,0.5);
+
+  /* Type scale (fluid) */
+  --text-xs:   clamp(0.8rem, 0.77rem + 0.14vw, 0.88rem);
+  --text-sm:   clamp(0.9rem, 0.87rem + 0.18vw, 1rem);
+  --text-base: clamp(1.02rem, 0.98rem + 0.2vw, 1.1rem);
+  --text-lg:   clamp(1.2rem, 1.12rem + 0.4vw, 1.42rem);
+  --text-xl:   clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  --text-2xl:  clamp(2.1rem, 1.7rem + 2vw, 3.4rem);
+  --text-hero: clamp(3rem, 2.2rem + 5vw, 6.4rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-6: 1.5rem;  --space-8: 2rem;
+  --space-12: 3rem;    --space-16: 4rem;   --space-20: 5rem;
+  --space-24: 6rem;    --space-32: 8rem;
+
+  /* Radius */
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-xl: 28px;
+
+  /* Tracking discipline (Refero: Sequel — sculpted display, restrained labels) */
+  --track-display: -0.025em;  /* большие serif-заголовки: «вылепленные», плотные */
+  --track-head:    -0.018em;  /* секционные h2 */
+  --track-label:    0.16em;   /* мелкие капс-подписи: сдержанно, читаемо */
+
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  --font-body: 'Switzer', 'Inter', system-ui, sans-serif;
+
+  --shadow-soft: 0 24px 60px -28px rgba(0,0,0,0.6);
+  /* Возвышение карточек — внутренняя подсветка сверху + мягкая тень (Sequel) */
+  --edge-top: inset 0 1px 0 0 rgba(244,239,230,0.06);
+  --shadow-card: 0 18px 40px -24px rgba(0,0,0,0.55), var(--edge-top);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --maxw: 1280px;
+}
+
+/* ---------- Primitive utilities ---------- */
+.wrap { width: min(100% - 2.5rem, var(--maxw)); margin-inline: auto; }
+.wrap--narrow { width: min(100% - 2.5rem, 880px); margin-inline: auto; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 0.7em;
+}
+.eyebrow::before {
+  content: ""; width: 28px; height: 1px; flex: none;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6em;
+  font-size: var(--text-sm); letter-spacing: 0.04em;
+  padding: 0.72em 1.4em; border-radius: 999px;
+  --mag-x: 0px; --mag-y: 0px;
+  transform: translate(var(--mag-x), var(--mag-y));
+  transition: transform .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--ivory); color: var(--emerald-deep); font-weight: 500;
+}
+.btn-primary:hover { transform: translate(var(--mag-x), calc(var(--mag-y) - 2px)); background: var(--champagne); }
+.btn-ghost {
+  border: 1px solid var(--border-strong); color: var(--ivory);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-soft); }
+.btn-gold {
+  border: 1px solid var(--gold); color: var(--gold-soft);
+}
+.btn-gold:hover { background: var(--gold); color: var(--emerald-deep); transform: translate(var(--mag-x), calc(var(--mag-y) - 2px)); }
+
+/* Visually-hidden helper */
+.visually-hidden {
+  position: absolute !important; width: 1px !important; height: 1px !important;
+  padding: 0 !important; margin: -1px !important; overflow: hidden !important;
+  clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important;
+  white-space: nowrap; border: 0;
+}
+
+/* Skip link: не уводим за экран — иначе на мобильных появляется горизонтальный скролл */
+.skip-link,
+a[href="#main"].btn-ghost {
+  position: fixed !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  z-index: 200;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link:focus,
+a[href="#main"].btn-ghost:focus {
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+  clip-path: none !important;
+  overflow: visible !important;
+  padding: 0.72em 1.4em;
+}
