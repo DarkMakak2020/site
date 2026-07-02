@@ -76,6 +76,17 @@
     window.__ROOT__ = r;
     return r;
   }
+
+  /* Invite из письма Netlify ведёт на главную — перекидываем в /admin/, где есть форма пароля */
+  (function redirectIdentityHashToAdmin() {
+    var path = location.pathname || '';
+    if (/\/admin\/?$/i.test(path) || /\/admin\/index\.html$/i.test(path)) return;
+    var hash = location.hash || '';
+    if (!/(invite_token|confirmation_token|recovery_token)=/i.test(hash)) return;
+    var root = getRoot();
+    location.replace(root + 'admin/index.html' + hash);
+  })();
+
   function R(p) {
     if (window.SiteRoot) return window.SiteRoot.resolve(p);
     if (p == null) return p;

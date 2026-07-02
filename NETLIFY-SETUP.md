@@ -120,31 +120,53 @@ git push -u origin main
 
 # ЧАСТЬ 4. Админка для Елены (Netlify Identity + Git Gateway)
 
+> **Где вы сейчас:** слева **Project configuration** (зелёная точка) → в центре блок **Identity** с пунктами Overview / Users / Registration / Emails / Services.  
+> Старые названия вроде «Settings and usage» в Netlify **больше нет** — ниже актуальный интерфейс.
+
 ## Шаг 4.1. Identity (вход по email)
 
-1. **Site configuration** → **Identity** → **Enable Identity**.
+### A. Включить Identity (если ещё не включено)
 
-2. **Identity** → **Settings and usage**:
-   - **Registration preferences** → **Invite only** (только по приглашению — так безопаснее).
+1. Слева: **Project configuration**
+2. В центральной колонке найдите блок **Identity**
+3. Если видите кнопку **Enable Identity** — нажмите её  
+   *(У вас Identity уже включён, если открывается страница «Identity settings» с API endpoint.)*
 
-3. **Identity** → **Invite users** → введите email Елены → **Send invite**.
+### B. Только по приглашению (Invite only)
 
-4. Елена откроет письмо и задаст пароль (или будет входить по ссылке — зависит от настроек).
+1. Оставаясь в **Project configuration**
+2. В блоке **Identity** нажмите **Registration** (не Overview!)
+3. Найдите **Registration preferences** или **Allow registration**
+4. Выберите **Invite only** / **Only invited users**
+5. **Save** / **Update settings**
 
-## Шаг 4.2. Git Gateway (чтобы сохранения из админки попадали на сайт)
+### C. Пригласить Елену
 
-1. **Identity** → **Services** → **Git Gateway** → **Enable Git Gateway**.
+1. В блоке **Identity** нажмите **Users**  
+   *(или на Overview прокрутите до секции Users — кнопка **Invite users**)*
+2. **Invite users**
+3. Email Елены → **Send invite** / **Invite**
+4. **Важно:** в письме **Accept invite** → должна открыться **`/admin/`** с формой **задать пароль**.  
+   Если перекинуло на главную и пароль не спросили:
+   - **Сразу:** в письме **ПКМ по ссылке** → **Копировать адрес** → вставьте в браузер, но путь замените на  
+     `https://ВАШ-САЙТ.netlify.app/admin/` (хвост `#invite_token=...` оставьте)
+   - **Или:** залейте обновлённый `site.js` на GitHub → снова **Invite users** (главная сама перекинет в `/admin/`)
+5. Задайте пароль → дальше только `/admin/` → **Log in**
 
-2. Если попросит — подтвердите доступ к GitHub.
+## Шаг 4.2. Git Gateway (чтобы админка сохраняла изменения)
+
+1. **Project configuration**
+2. Блок **Identity** → **Services**
+3. **Git Gateway** → **Enable Git Gateway**
+4. Если попросит — подтвердите доступ к GitHub
 
 ## Шаг 4.3. Проверка админки
 
-1. Откройте `https://ваш-временный-адрес.netlify.app/admin/`  
-2. Войдите под email Елены (или своим, если пригласили себя).  
-3. Слева: **Подкаст**, **Экскурсии** и т.д.  
-4. Измените что-нибудь мелкое → **Опубликовать**.  
-5. Подождите 2–3 минуты (Netlify пересоберёт сайт).  
-6. Обновите страницу сайта — изменение должно появиться.
+1. Откройте `https://benevolent-sherbet-0bada3.netlify.app/admin/` (ваш netlify-адрес + `/admin/`)
+2. **Log in** → email, на который приглашали
+3. Слева: **Экскурсии**, **Подкаст** и т.д.
+4. Мелкая правка → **Опубликовать**
+5. Через 2–3 мин **Deploys** → Published → обновите сайт (F5)
 
 Подробнее для Елены — **ELENA-ADMIN.md**.
 
