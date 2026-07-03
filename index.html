@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  <script src="assets/js/identity-invite-redirect.js"></script>
   <style>html.pc-cover::before{content:"";position:fixed;inset:0;z-index:700;background:#081f1b}</style>
   <script>try{if(sessionStorage.getItem('pc-transit')==='1')document.documentElement.classList.add('pc-cover')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -295,5 +296,21 @@
   <script src="content/bundle.js" defer></script>
   <script src="assets/js/content.js" defer></script>
   <script src="assets/js/site.js" defer></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', function (user) {
+        var token = (location.search || '') + (location.hash || '');
+        if (!user && /(invite_token|confirmation_token)=/i.test(token)) {
+          window.netlifyIdentity.open('signup');
+        }
+        window.netlifyIdentity.on('login', function () {
+          if (!/\/admin(\/|$)/.test(location.pathname)) {
+            location.href = '/admin/';
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>

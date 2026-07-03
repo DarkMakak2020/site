@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
+  <script src="../assets/js/identity-invite-redirect.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Админка · Елена Бочарова</title>
@@ -13,11 +14,11 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // После входа по invite — остаёмся в админке (форма «задать пароль» откроется сама)
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', function () {
-        if (location.hash && /(invite_token|confirmation_token)=/i.test(location.hash)) {
-          window.netlifyIdentity.open();
+      window.netlifyIdentity.on('init', function (user) {
+        var token = (location.search || '') + (location.hash || '');
+        if (!user && /(invite_token|confirmation_token|recovery_token)=/i.test(token)) {
+          window.netlifyIdentity.open('signup');
         }
       });
     }
