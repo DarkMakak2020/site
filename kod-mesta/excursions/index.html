@@ -211,7 +211,7 @@
 
           </div>
 
-          <form class="form form--wide form--paired" data-form="excursion" name="excursion" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+          <form class="form form--wide form--paired form--excursion" data-form="excursion" name="excursion" method="POST" data-netlify="true" netlify-honeypot="bot-field"
 
             data-success="Спасибо! Елена уточнит детали и предложит маршрут под ваш запрос.">
 
@@ -246,23 +246,13 @@
             </div>
             </div>
 
-            <div class="field field--full">
+            <div class="field field--full field--route">
 
               <label for="ex-route">Интересующий маршрут</label>
 
               <select id="ex-route" name="route">
 
                 <option value="">Помогите выбрать</option>
-
-                <option value="biznes-kod-faberge-nobeli-putilov">БИЗНЕС-КОД: Фаберже, Нобели, Путилов и Ко</option>
-
-                <option value="brilliantovaya-ulica-pervyy-biznes-hab">«Бриллиантовая» улица: первый бизнес-хаб</option>
-
-                <option value="ot-sennoy-do-senatskoy">От Сенной до Сенатской</option>
-
-                <option value="semeynyy-kod">Семейный код</option>
-
-                <option value="petr-pervyy-lider-predprinimatelstva">Пётр Первый — лидер предпринимательства</option>
 
               </select>
 
@@ -319,8 +309,6 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       window.SiteContent.renderCollection({ mount: '#excursions', path: '/content/excursions.json', type: 'excursion', emptyText: 'Маршруты скоро появятся.' });
-      var route = new URLSearchParams(location.search).get('route');
-      if (route) window.SiteContent.applyExcursionRoute(route);
     });
 
   </script>

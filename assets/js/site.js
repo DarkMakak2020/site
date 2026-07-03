@@ -1061,8 +1061,9 @@
 
     function syncFromNative() {
       var sel = select.options[select.selectedIndex];
-      valueEl.textContent = sel ? sel.textContent : '';
-      valueEl.title = sel && sel.value ? sel.textContent : '';
+      var display = sel ? (sel.getAttribute('data-short') || sel.textContent) : '';
+      valueEl.textContent = display;
+      valueEl.title = sel && sel.value ? (sel.getAttribute('title') || sel.textContent) : '';
       valueEl.classList.toggle('is-placeholder', !sel || sel.value === '');
       items.forEach(function (li, i) {
         li.setAttribute('aria-selected', i === select.selectedIndex ? 'true' : 'false');
@@ -1117,11 +1118,22 @@
     syncFromNative();
   }
 
+  function reEnhanceSelect(select) {
+    if (!select) return;
+    var wrap = select.closest('.cselect');
+    if (wrap) {
+      wrap.parentNode.insertBefore(select, wrap);
+      wrap.remove();
+    }
+    enhanceSelect(select);
+  }
+
   function initSelects(root) {
     var scope = root || document;
     scope.querySelectorAll('.field select').forEach(enhanceSelect);
   }
   window.initSelects = initSelects;
+  window.reEnhanceSelect = reEnhanceSelect;
 
   function initWowEffects() {
     initScrollProgress();

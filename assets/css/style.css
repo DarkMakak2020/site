@@ -529,7 +529,7 @@ a[href^="mailto:"] { text-transform: lowercase; }
   margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-faint);
 }
 .funnel-alt a { color: var(--gold-soft); }
-.panel--funnel { padding: clamp(1.75rem, 3.5vw, 3rem); contain: paint; isolation: isolate; }
+.panel--funnel { padding: clamp(1.75rem, 3.5vw, 3rem); isolation: isolate; overflow-x: clip; }
 .panel--funnel .section-head { margin-bottom: var(--space-6); }
 .panel--funnel .section-head h2 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); }
 .panel--funnel .section-head p { font-size: var(--text-base); color: var(--text-soft); max-width: none; }
@@ -872,6 +872,19 @@ details.faq-item > summary::-webkit-details-marker { display: none; }
 .form--wide { max-width: 820px; width: 100%; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 /* Явные пары полей — сетка не ломается от honeypot и длинных select */
 .form--wide.form--paired { grid-template-columns: 1fr; }
+/* Форма экскурсий: одна колонка, длинный маршрут не раздувает сетку */
+.form--excursion {
+  grid-template-columns: 1fr !important;
+  width: 100%; max-width: 100%; overflow-x: clip;
+}
+.form--excursion .form-row,
+.form--excursion .field,
+.form--excursion .field--route,
+.form--excursion .field--route .cselect,
+.form--excursion .cselect-trigger {
+  min-width: 0; max-width: 100%;
+}
+.form--excursion .field--route { overflow: hidden; }
 .form-row {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-4); min-width: 0; width: 100%;
@@ -934,8 +947,10 @@ details.faq-item > summary::-webkit-details-marker { display: none; }
    ============================================================ */
 .cselect { position: relative; min-width: 0; width: 100%; }
 .cselect.is-enhanced > select {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  border: 0; clip: rect(0 0 0 0); overflow: hidden; pointer-events: none;
+  position: fixed !important; left: -100vw !important; top: 0 !important;
+  width: 0 !important; height: 0 !important; min-width: 0 !important; max-width: 0 !important;
+  padding: 0 !important; margin: 0 !important; border: 0 !important;
+  opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
 }
 .cselect-trigger {
   width: 100%; min-width: 0; max-width: 100%; text-align: left; cursor: pointer;

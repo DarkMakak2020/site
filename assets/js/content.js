@@ -310,6 +310,29 @@
     },
   };
 
+  function shortenRouteLabel(title) {
+    if (!title || title.length <= 52) return title;
+    return title.slice(0, 49).trim() + '…';
+  }
+
+  function initExcursionRouteSelect(items) {
+    const sel = document.getElementById('ex-route');
+    if (!sel || !items || !items.length) return;
+    const keep = sel.value || new URLSearchParams(location.search).get('route') || '';
+    const opts = ['<option value="">Помогите выбрать</option>'];
+    items.forEach((it) => {
+      if (!it.slug) return;
+      const short = shortenRouteLabel(it.title);
+      opts.push(
+        '<option value="' + esc(it.slug) + '" data-short="' + esc(short) + '" title="' + esc(it.title) + '">' + esc(it.title) + '</option>'
+      );
+    });
+    sel.innerHTML = opts.join('');
+    if (keep && sel.querySelector('option[value="' + keep.replace(/"/g, '\\"') + '"]')) sel.value = keep;
+    if (window.reEnhanceSelect) window.reEnhanceSelect(sel);
+    else sel.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
   function applyExcursionRoute(route) {
     if (!route) return;
     const sel = document.getElementById('ex-route');
@@ -318,6 +341,8 @@
     if (!opt) return;
     sel.value = route;
     sel.dispatchEvent(new Event('change', { bubbles: true }));
+    const wrap = sel.closest('.cselect');
+    if (wrap && !wrap.classList.contains('is-enhanced') && window.reEnhanceSelect) window.reEnhanceSelect(sel);
   }
 
   function scrollToExcursionForm() {
@@ -361,6 +386,9 @@
       mount.innerHTML = items.map(tpl).join('');
       if (opts.type === 'excursion') {
         initExcursionCardLinks(mount);
+        initExcursionRouteSelect(items);
+        const route = new URLSearchParams(location.search).get('route');
+        if (route) applyExcursionRoute(route);
         if (window.refreshParallax) window.refreshParallax();
       }
       if (opts.type === 'podcast') {
@@ -450,7 +478,7 @@
 
   window.SiteContent = {
     loadJSON, renderCollection, renderArticle, applyGlobals, initPodcastPlayer,
-    applyExcursionRoute, scrollToExcursionForm, initExcursionCardLinks, playPodcastEpisode,
+    applyExcursionRoute, scrollToExcursionForm, initExcursionCardLinks, initExcursionRouteSelect, playPodcastEpisode,
     templates, rutubeIdFromUrl,
   };
 })();
