@@ -89,9 +89,9 @@ ul, ol { list-style: none; padding: 0; }
   --track-head:    -0.018em;  /* секционные h2 */
   --track-label:    0.16em;   /* мелкие капс-подписи: сдержанно, читаемо */
 
-  /* Fonts — системные, без внешних CDN (Fontshare/Google могут блокироваться в РФ) */
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Fonts — Cormorant + Switzer; грузятся неблокирующе в HTML */
+  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  --font-body: 'Switzer', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --shadow-soft: 0 24px 60px -28px rgba(0,0,0,0.6);
   /* Возвышение карточек — внутренняя подсветка сверху + мягкая тень (Sequel) */
