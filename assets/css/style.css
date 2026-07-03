@@ -469,6 +469,7 @@ a[href^="mailto:"] { text-transform: lowercase; }
 .funnel-grid {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: clamp(2rem, 4vw, 4rem); align-items: start;
+  width: 100%; max-width: 100%; min-width: 0;
 }
 .offer-highlight {
   border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
@@ -533,18 +534,54 @@ a[href^="mailto:"] { text-transform: lowercase; }
 .funnel-alt a { color: var(--gold-soft); }
 .panel--funnel {
   padding: clamp(1.75rem, 3.5vw, 3rem);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   isolation: isolate;
   overflow: visible;
 }
-/* reveal + will-change на блоке формы на мобильных режет textarea и кнопку */
+/* Форма в воронке — без reveal-сдвига: иначе на планшете/десктопе режет правый край */
 .panel--funnel.reveal,
-.panel--funnel.reveal.in {
+.panel--funnel.reveal.in,
+.panel--funnel.reveal-right,
+.panel--funnel.reveal-left {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  clip-path: none;
   overflow: visible;
   will-change: auto;
 }
 .funnel-grid,
 .section:has(.funnel-grid) {
   overflow: visible;
+}
+/* Парные поля в воронке — всегда одна колонка (панель часто узкая) */
+.panel--funnel .form-row {
+  grid-template-columns: 1fr;
+}
+.panel--funnel .form,
+.panel--funnel .form--wide {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.panel--funnel .cselect-trigger {
+  height: auto;
+  min-height: 3.15em;
+  align-items: flex-start;
+  padding-block: 0.85em;
+  overflow: visible;
+}
+.panel--funnel .cselect-value {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .panel--funnel .section-head { margin-bottom: var(--space-6); }
 .panel--funnel .section-head h2 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); }
@@ -741,9 +778,9 @@ a[href^="mailto:"] { text-transform: lowercase; }
   .pod-photos { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .funnel-grid { grid-template-columns: 1fr; }
-  /* На мобильных сначала форма, потом «как проходит заявка» */
+  /* На мобильных и планшете сначала форма, потом «как проходит заявка» */
   .funnel-grid > .panel--funnel { order: -1; }
   .funnel-aside { order: 1; }
   .panel--funnel .form--wide { grid-template-columns: 1fr; }
@@ -968,10 +1005,22 @@ details.faq-item > summary::-webkit-details-marker { display: none; }
    ============================================================ */
 .cselect { position: relative; min-width: 0; width: 100%; }
 .cselect.is-enhanced > select {
-  position: fixed !important; left: -100vw !important; top: 0 !important;
-  width: 0 !important; height: 0 !important; min-width: 0 !important; max-width: 0 !important;
-  padding: 0 !important; margin: 0 !important; border: 0 !important;
-  opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
 }
 .cselect-trigger {
   width: 100%; min-width: 0; max-width: 100%; text-align: left; cursor: pointer;
@@ -1570,10 +1619,23 @@ html:not(.js) .reveal {
   .door--sm { grid-column: span 2; }
   .proof, .feature-grid, .feature-grid--2 { grid-template-columns: 1fr; }
 }
+@media (max-width: 900px) {
+  .form-row { grid-template-columns: 1fr; }
+}
 @media (max-width: 760px) {
   .doors { grid-template-columns: 1fr; }
   .door--lg, .door--md, .door--sm { grid-column: span 1; min-height: 200px; }
   .motto-strip { gap: var(--space-6); }
+  /* Отступы через padding + safe-area — надёжнее min(100% - 2.5rem) на iOS */
+  .wrap,
+  .wrap--narrow {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+  }
   .form--wide { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .form .btn {
