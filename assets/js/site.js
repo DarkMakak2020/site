@@ -6,6 +6,9 @@
 (function () {
   'use strict';
 
+  try { sessionStorage.removeItem('pc-transit'); } catch (_) {}
+  document.documentElement.classList.remove('pc-cover', 'pc-arriving');
+
   document.documentElement.classList.add('js');
 
   // Ссылка «К содержанию»: убираем inline left:-9999px (даёт горизонтальный скролл на iOS).
@@ -427,6 +430,11 @@
     setTimeout(revealInViewport, 200);
     if (location.hash) setTimeout(revealInViewport, 600);
     window.addEventListener('hashchange', () => setTimeout(revealInViewport, 120), { passive: true });
+
+    // Страховка: если скролл/IO не сработали — не оставляем страницу пустой.
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
+    }, 3000);
   }
 
   // Публичный помощник: пометить динамически добавленные .reveal как видимые
@@ -830,7 +838,8 @@
     curtain.classList.add('is-drawn');
   }
   function injectCurtain() {
-    if (prefersReduced() || _curtain || !document.body) return;
+    /* Отключено: «штора» при загрузке ломала сайт, если JS/external CDN тормозят. */
+    return;
     try { _arriving = sessionStorage.getItem('pc-transit') === '1'; } catch (_) {}
     // Пока штора держит — отключаем вступительные анимации reveal/split,
     // чтобы контент под ней встал на места мгновенно (без «сырого» кадра).
@@ -1163,6 +1172,10 @@
   // Штору впрыскиваем максимально рано (скрипт стоит в конце body),
   // чтобы избежать вспышки контента до «открытия».
   injectCurtain();
+  setTimeout(function () {
+    document.body.classList.remove('curtain-active');
+    document.documentElement.classList.remove('pc-cover', 'pc-arriving');
+  }, 3500);
 
   document.addEventListener('DOMContentLoaded', function () {
     if (!document.querySelector('meta[name="theme-color"]')) {

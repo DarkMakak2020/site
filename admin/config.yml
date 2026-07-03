@@ -9,8 +9,8 @@ backend:
   branch: main
 
 # URL сайта — замените example.com на реальный домен после деплоя
-site_url: https://example.com
-display_url: https://example.com
+site_url: https://elenabbocharova.ru
+display_url: https://elenabbocharova.ru
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"

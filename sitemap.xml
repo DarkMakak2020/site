@@ -1,61 +1,60 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Замените example.com в content/site.json на реальный домен и перезапустите apply_seo.py -->
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://elenabbocharova.ru/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://example.com/kod-mesta/</loc>
+    <loc>https://elenabbocharova.ru/kod-mesta/</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/kod-mesta/excursions/</loc>
+    <loc>https://elenabbocharova.ru/kod-mesta/excursions/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/kod-mesta/podcast/</loc>
+    <loc>https://elenabbocharova.ru/kod-mesta/podcast/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/strateg/</loc>
+    <loc>https://elenabbocharova.ru/strateg/</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/coach/</loc>
+    <loc>https://elenabbocharova.ru/coach/</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/praktikum-hr/</loc>
+    <loc>https://elenabbocharova.ru/praktikum-hr/</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/books/</loc>
+    <loc>https://elenabbocharova.ru/books/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://elenabbocharova.ru/about/</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/journal/</loc>
+    <loc>https://elenabbocharova.ru/journal/</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/contacts/</loc>
+    <loc>https://elenabbocharova.ru/contacts/</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/privacy/</loc>
+    <loc>https://elenabbocharova.ru/privacy/</loc>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://example.com/journal/article.html?slug=chto-takoe-kod-mesta</loc>
+    <loc>https://elenabbocharova.ru/journal/article.html?slug=chto-takoe-kod-mesta</loc>
     <priority>0.6</priority>
     <lastmod>2026-06-01</lastmod>
   </url>
   <url>
-    <loc>https://example.com/journal/article.html?slug=anons-praktikuma-hr</loc>
+    <loc>https://elenabbocharova.ru/journal/article.html?slug=anons-praktikuma-hr</loc>
     <priority>0.6</priority>
     <lastmod>2026-06-15</lastmod>
   </url>
