@@ -538,7 +538,9 @@ a[href^="mailto:"] { text-transform: lowercase; }
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  isolation: isolate;
+  /* contain:paint жёстко обрезает форму (правый/нижний край) — нельзя на блоке заявки */
+  contain: none !important;
+  isolation: auto;
   overflow: visible;
 }
 /* Форма в воронке — без reveal-сдвига: иначе на планшете/десктопе режет правый край */
