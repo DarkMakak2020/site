@@ -531,7 +531,21 @@ a[href^="mailto:"] { text-transform: lowercase; }
   margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-faint);
 }
 .funnel-alt a { color: var(--gold-soft); }
-.panel--funnel { padding: clamp(1.75rem, 3.5vw, 3rem); isolation: isolate; }
+.panel--funnel {
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  isolation: isolate;
+  overflow: visible;
+}
+/* reveal + will-change на блоке формы на мобильных режет textarea и кнопку */
+.panel--funnel.reveal,
+.panel--funnel.reveal.in {
+  overflow: visible;
+  will-change: auto;
+}
+.funnel-grid,
+.section:has(.funnel-grid) {
+  overflow: visible;
+}
 .panel--funnel .section-head { margin-bottom: var(--space-6); }
 .panel--funnel .section-head h2 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); }
 .panel--funnel .section-head p { font-size: var(--text-base); color: var(--text-soft); max-width: none; }
@@ -913,7 +927,15 @@ details.faq-item > summary::-webkit-details-marker { display: none; }
 }
 .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--gold); background: var(--surface-3); outline: none; }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-faint); }
-.field textarea { min-height: 120px; resize: vertical; }
+.field textarea {
+  min-height: 120px;
+  max-height: none;
+  resize: vertical;
+  overflow-x: hidden;
+  overflow-y: auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
 .field select {
   appearance: none; -webkit-appearance: none;
   cursor: pointer; padding-right: 2.8em;
@@ -1073,6 +1095,21 @@ details.faq-item > summary::-webkit-details-marker { display: none; }
 .form-status { font-size: var(--text-sm); min-height: 1.4em; }
 .form-status.is-ok { color: var(--gold-soft); }
 .form-status.is-err { color: #e7a3a3; }
+/* Длинные подписи кнопок в воронках — перенос, иначе nowrap режет текст справа */
+.panel--funnel .form .btn {
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  text-wrap: balance;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.35;
+  overflow: visible;
+}
+.panel--funnel .form .btn-primary,
+.panel--funnel .form .btn-gold {
+  overflow: visible;
+}
 
 /* ---------------- Closing CTA ---------------- */
 .closer {
@@ -1539,6 +1576,17 @@ html:not(.js) .reveal {
   .motto-strip { gap: var(--space-6); }
   .form--wide { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .form .btn {
+    white-space: normal;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.35;
+    overflow: visible;
+  }
+  .form .btn-primary,
+  .form .btn-gold { overflow: visible; }
   .step { grid-template-columns: 1fr; gap: var(--space-3); }
   /* Горизонтальный сдвиг reveal на узких экранах даёт боковой скролл */
   .reveal-left, .reveal-right { transform: translateY(28px) scale(0.985); }
