@@ -93,8 +93,11 @@
         <form class="form form--wide" data-form="contact-general" name="contact-general" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact-general" />
           <p class="visually-hidden" aria-hidden="true"><label>Не заполняйте: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="form-row">
           <div class="field"><label for="c-name">Имя <span class="req">*</span></label><input id="c-name" name="name" required /></div>
           <div class="field"><label for="c-contact">Телефон / Telegram / WhatsApp <span class="req">*</span></label><input id="c-contact" name="phone" required /></div>
+          </div>
+          <div class="form-row">
           <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" /></div>
           <div class="field">
             <label for="c-topic">Направление</label>
@@ -107,6 +110,7 @@
               <option>Подкаст</option>
               <option>Другое</option>
             </select>
+          </div>
           </div>
           <div class="field field--full"><label for="c-msg">Комментарий</label><textarea id="c-msg" name="message" placeholder="Коротко о запросе"></textarea></div>
           <div class="field field--full consent">

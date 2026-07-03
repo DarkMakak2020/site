@@ -186,8 +186,11 @@
         <form class="form form--wide" data-form="contact" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p class="visually-hidden" aria-hidden="true"><label>Не заполняйте: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="form-row">
           <div class="field"><label for="ab-name">Имя <span class="req">*</span></label><input id="ab-name" name="name" required /></div>
           <div class="field"><label for="ab-phone">Телефон</label><input id="ab-phone" name="phone" type="tel" /></div>
+          </div>
+          <div class="form-row">
           <div class="field"><label for="ab-email">Email <span class="req">*</span></label><input id="ab-email" name="email" type="email" required /></div>
           <div class="field">
             <label for="ab-interest">Направление интереса</label>
@@ -201,6 +204,7 @@
               <option>Книги</option>
               <option>Другое</option>
             </select>
+          </div>
           </div>
           <div class="field field--full"><label for="ab-msg">Комментарий</label><textarea id="ab-msg" name="message"></textarea></div>
           <div class="field field--full consent">

@@ -241,10 +241,15 @@
           <input type="hidden" name="form-name" value="praktikum-hr" />
           <input type="hidden" name="intent" value="program" />
           <p class="visually-hidden" aria-hidden="true"><label>Не заполняйте: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="form-row">
           <div class="field"><label for="hr-name">Имя <span class="req">*</span></label><input id="hr-name" name="name" required /></div>
           <div class="field"><label for="hr-phone">Телефон <span class="req">*</span></label><input id="hr-phone" name="phone" type="tel" required /></div>
+          </div>
+          <div class="form-row">
           <div class="field"><label for="hr-email">Email <span class="req">*</span></label><input id="hr-email" name="email" type="email" required /></div>
           <div class="field"><label for="hr-role">Текущая роль <span class="req">*</span></label><input id="hr-role" name="current_role" placeholder="HR-специалист, HR BP, HRD…" required /></div>
+          </div>
+          <div class="form-row">
           <div class="field">
             <label for="hr-exp">Опыт в HR</label>
             <select id="hr-exp" name="hr_experience">
@@ -266,7 +271,8 @@
               <option>Другое</option>
             </select>
           </div>
-          <div class="field">
+          </div>
+          <div class="field field--full">
             <label for="hr-pay">Оплата</label>
             <select id="hr-pay" name="payment">
               <option>Полностью</option>
