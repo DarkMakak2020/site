@@ -318,6 +318,15 @@
   function initExcursionRouteSelect(items) {
     const sel = document.getElementById('ex-route');
     if (!sel || !items || !items.length) return;
+    if (sel.options.length > 1) {
+      // HTML уже содержит маршруты — только синхронизируем из JSON, если списки различаются
+      const slugs = items.map((it) => it.slug).filter(Boolean);
+      const existing = Array.from(sel.options).slice(1).map((o) => o.value);
+      if (slugs.length === existing.length && slugs.every((s, i) => s === existing[i])) {
+        if (window.reEnhanceSelect) window.reEnhanceSelect(sel);
+        return;
+      }
+    }
     const keep = sel.value || new URLSearchParams(location.search).get('route') || '';
     const opts = ['<option value="">Помогите выбрать</option>'];
     items.forEach((it) => {
