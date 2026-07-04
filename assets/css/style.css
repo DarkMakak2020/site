@@ -377,7 +377,7 @@ section { position: relative; z-index: 1; }
   border: 0;
   background: transparent;
 }
-/* Живые импульсы на глифах (хаб / КОД МЕСТА / Стратег / Коуч) */
+/* Живые импульсы на глифах (хаб / КОД МЕСТА / Обо мне / Стратег / Коуч) */
 .glyph-stage {
   position: relative;
   width: 100%;

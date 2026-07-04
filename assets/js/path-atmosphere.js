@@ -1,4 +1,4 @@
-// path-atmosphere.js — живые импульсы по глифам (хаб / КОД МЕСТА / Стратег / Коуч)
+// path-atmosphere.js — живые импульсы по глифам (хаб / КОД МЕСТА / Обо мне / Стратег / Коуч)
 (function () {
   'use strict';
 
@@ -227,6 +227,21 @@
         edges: makeOrbitEdges(count),
         outerRing: [1, 2, 3, 4, 5],
         innerRing: [6, 7, 8, 9, 10],
+        orbitCount: count,
+        mode: 'orbit',
+        hideCenterEdges: true
+      };
+    })(),
+    'roles-six': (function () {
+      var count = 6;
+      var nodes = makeOrbitNodes(118, 78, count, 150, 150);
+      return {
+        id: 'roles-six',
+        glow: 0.38,
+        nodes: nodes,
+        edges: makeOrbitEdges(count),
+        outerRing: [1, 2, 3, 4, 5, 6],
+        innerRing: [7, 8, 9, 10, 11, 12],
         orbitCount: count,
         mode: 'orbit',
         hideCenterEdges: true
