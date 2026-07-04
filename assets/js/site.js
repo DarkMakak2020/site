@@ -977,6 +977,32 @@
       });
     });
   }
+  function initHeroDrift() {
+    if (prefersReduced() || window.matchMedia('(max-width: 900px)').matches) return;
+    var hero = document.querySelector('.is-home .hero');
+    if (!hero || hero.querySelector(':scope > .hero-drift')) return;
+    var layer = document.createElement('div');
+    layer.className = 'hero-drift';
+    layer.setAttribute('aria-hidden', 'true');
+    var count = 10;
+    for (var i = 0; i < count; i++) {
+      var mote = document.createElement('span');
+      mote.className = 'hero-drift__mote';
+      var size = 2 + Math.random() * 1.6;
+      var glow = 6 + Math.random() * 6;
+      mote.style.setProperty('--x', (6 + Math.random() * 88).toFixed(1) + '%');
+      mote.style.setProperty('--y', (4 + Math.random() * 82).toFixed(1) + '%');
+      mote.style.setProperty('--s', size.toFixed(1) + 'px');
+      mote.style.setProperty('--g', glow.toFixed(0) + 'px');
+      mote.style.setProperty('--dur', (18 + Math.random() * 20).toFixed(1) + 's');
+      mote.style.setProperty('--delay', (-Math.random() * 24).toFixed(1) + 's');
+      mote.style.setProperty('--dx', ((Math.random() - 0.5) * 48).toFixed(0) + 'px');
+      mote.style.setProperty('--dy', (-8 - Math.random() * 32).toFixed(0) + 'px');
+      mote.style.setProperty('--o', (0.22 + Math.random() * 0.28).toFixed(2));
+      layer.appendChild(mote);
+    }
+    hero.insertBefore(layer, hero.firstChild);
+  }
 
   // 6. Count-up чисел в статистике при попадании в экран.
   function initCountUp() {
@@ -1145,8 +1171,10 @@
     initMagnetic();
     initMarquee();
     initGrain();
+    initHeroDrift();
     initTouchFeedback();
     initPageTransition();
+    if (window.initPathAtmosphere) window.initPathAtmosphere();
   }
 
   // Подключаем cookies.js на всех страницах (баннер + согласия).

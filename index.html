@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -32,7 +32,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20260706" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260723" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23081f1b'/%3E%3Cpath d='M16 5 L27 16 L16 27 L5 16 Z' fill='none' stroke='%23c4a35a' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23c4a35a'/%3E%3C/svg%3E" />
 
@@ -70,6 +70,15 @@
       <div class="hero-grid">
         <div>
           <p class="eyebrow hero-eyebrow reveal" data-delay="60">Мультибрендовый хаб</p>
+          <nav class="crumbs crumbs--hero reveal" aria-label="Направления" data-delay="100">
+            <a href="kod-mesta/index.html">Метод</a><span class="sep" aria-hidden="true">·</span>
+            <a href="strateg/index.html">Стратегия</a><span class="sep" aria-hidden="true">·</span>
+            <a href="coach/index.html">Коучинг</a><span class="sep" aria-hidden="true">·</span>
+            <a href="praktikum-hr/index.html">HR</a><span class="sep" aria-hidden="true">·</span>
+            <a href="kod-mesta/excursions/index.html">Экскурсии</a><span class="sep" aria-hidden="true">·</span>
+            <a href="books/index.html">Книги</a><span class="sep" aria-hidden="true">·</span>
+            <a href="kod-mesta/podcast/index.html">Подкаст</a>
+          </nav>
           <h1 id="hero-title" class="reveal reveal-mask" data-delay="140">Точка опоры<br>в любой <span class="accent">системе</span></h1>
           <p class="roles reveal" data-delay="300">
             <b>Автор метода КОД МЕСТА.</b> Стратег. Коуч. HR-директор. Гид-переводчик. Писательница. Ведущая подкаста.
@@ -215,17 +224,23 @@
     <!-- ===================== METHOD / PHILOSOPHY ===================== -->
     <section class="section wrap" id="method" aria-labelledby="method-h">
       <div class="method">
-        <div class="reveal reveal-left">
+        <div class="glyph-stage reveal reveal-left">
+          <canvas class="path-atmosphere path-atmosphere--glyph" data-path-graph="diamond" aria-hidden="true"></canvas>
           <svg class="glyph-svg" viewBox="0 0 300 300" fill="none" aria-hidden="true">
             <g stroke="currentColor" stroke-width="0.9" opacity="0.85">
               <path d="M150 20 L280 150 L150 280 L20 150 Z"/>
               <path d="M150 55 L245 150 L150 245 L55 150 Z" opacity="0.7"/>
               <path d="M150 90 L210 150 L150 210 L90 150 Z" opacity="0.55"/>
-              <circle cx="150" cy="150" r="6" fill="currentColor"/>
             </g>
             <g stroke="currentColor" stroke-width="0.6" opacity="0.4">
-              <line x1="150" y1="20" x2="150" y2="280"/>
-              <line x1="20" y1="150" x2="280" y2="150"/>
+              <line x1="150" y1="150" x2="150" y2="20"/>
+              <line x1="150" y1="150" x2="280" y2="150"/>
+              <line x1="150" y1="150" x2="150" y2="280"/>
+              <line x1="150" y1="150" x2="20" y2="150"/>
+              <line x1="150" y1="150" x2="244" y2="56"/>
+              <line x1="150" y1="150" x2="56" y2="56"/>
+              <line x1="150" y1="150" x2="244" y2="244"/>
+              <line x1="150" y1="150" x2="56" y2="244"/>
               <circle cx="150" cy="150" r="120" stroke-dasharray="2 6"/>
             </g>
           </svg>
@@ -294,6 +309,7 @@
   <script src="assets/js/seo.js" defer></script>
   <script src="content/bundle.js" defer></script>
   <script src="assets/js/content.js" defer></script>
+  <script src="assets/js/path-atmosphere.js?v=20260721" defer></script>
   <script src="assets/js/site.js" defer></script>
 </body>
 </html>
